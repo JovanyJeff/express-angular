@@ -5,11 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-/**
- * Route Imports
- */
-var signup = require('./routes/signup');
-
 var app = express();
 
 // view engine setup
@@ -23,11 +18,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 /**
- * Routes
- */
-app.use('/signup', signup);
-
-/**
  * Development Settings
  */
 if (app.get('env') === 'development') {
@@ -37,6 +27,10 @@ if (app.get('env') === 'development') {
     app.use(express.static(path.join(__dirname, '../client/.tmp')));
     app.use(express.static(path.join(__dirname, '../client/app')));
 
+    /**
+    * Routes
+    */
+    var router = require('./router')(app);
     // Error Handling
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
