@@ -9,34 +9,34 @@
     <form class="col s8 offset-s2">
       <div class="row">
         <div class="input-field col s6">
-          <input id="firstname" name="firstname" type="text" ng-model="signup.user.firstname" class="validate">
+          <input id="firstname" name="firstname" type="text" ng-model="user.firstname" class="validate">
           <label for="firstname">First Name</label>
         </div>
         <div class="input-field col s6">
-          <input id="lastname" name="lastname" type="text" ng-model="signup.user.lastname" class="validate">
+          <input id="lastname" name="lastname" type="text" ng-model="user.lastname" class="validate">
           <label for="lastname">Last Name</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="email" name="email" placeholder="me@jcolemorrison.com" ng-model="signup.user.email" type="email" class="validate">
+          <input id="email" name="email" placeholder="me@jcolemorrison.com" ng-model="user.email" type="email" class="validate">
           <label for="email">Email</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="password1" name="password1" type="password" ng-model="signup.user.password1" class="validate">
+          <input id="password1" name="password1" type="password" ng-model="user.password1" class="validate">
           <label for="password1">Password</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="password2" name="password2" type="password" ng-model="signup.user.password2" class="validate">
+          <input id="password2" name="password2" type="password" ng-model="user.password2" class="validate">
           <label for="password2">Retype Password</label>
         </div>
       </div>
   		<!-- Button -->
-		<button class="btn waves-effect waves-light blue" ng-click="signup.submit()" type="submit" id="signup" name="signup">Signup!
+		<button class="btn waves-effect waves-light blue" ng-click="userSave(user)" id="signup" name="signup">Signup!
 		    <i class="material-icons right">send</i>
 		  </button>
     </form>

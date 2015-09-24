@@ -6,23 +6,19 @@ angular.module('clientApp') // make sure this is set to whatever it is in your c
 		// Here we're creating some local references
 		// so that we don't have to type $scope every
 		// damn time
-		var user,
-		signup;
-
-		// Here we're creating a scope for our Signup page.
-		// This will hold our data and methods for this page.
-		$scope.signup = signup = {};
-
-		// In our signup.html, we'll be using the ng-model
-		// attribute to populate this object.
-		signup.user = user = {};
-
+		$scope.user = {
+			firstname: "",
+			lastname: "",
+			email:"",
+			password1:""
+		};
+		
 		// This is our method that will post to our server.
-		signup.submit = function () {
-			
+		$scope.userSave = function (user) {
 			// make sure all fields are filled out...
 			// aren't you glad you're not typing out
 			// $scope.signup.user.firstname everytime now??
+			user = $scope.user;
 			if (
 				!user.firstname ||
 				!user.lastname ||
@@ -30,14 +26,12 @@ angular.module('clientApp') // make sure this is set to whatever it is in your c
 				!user.password1 ||
 				!user.password2
 			) {
-				alert('Please fill out all form fields.');
 				Materialize.toast('Please fill out all form fields.', 4000);
 				return false;
 			}
 
 			// make sure the passwords match match
 			if (user.password1 !== user.password2) {
-				alert('Your passwords must match.');
 				Materialize.toast('Your passwords must match.', 4000);
 				return false;
 			}
@@ -52,11 +46,11 @@ angular.module('clientApp') // make sure this is set to whatever it is in your c
 			    // our json response is recognized as
 			    // the data parameter here. See? Our msg
 			    // value is right there!
-			    console.log(data.msg);
+			    console.log(data);
 			});
 
 			request.error(function (data) {
-			    console.log(data.msg);
+			    console.log(data);
 			});
 
 		};
